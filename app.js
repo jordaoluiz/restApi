@@ -1,17 +1,9 @@
 const express = require('express');
+const pedidosRouter = require('./routes/pedidos')
+const clientesRouter = require('./routes/clientes')
 const app = express();
-var pedidos = {
-    id: 1,
-    ferramenta: 'iFood',
-    pedido: 'PIZZA GRANDE DE CALABRESA',
-    valor: 39.90,
-    dataPeido: new Date
-}
-app.use('/', (req,res)=>{
-    res.status(200)
-    res.send({
-        
-         pedidos
-    })
-})
+
+app.use('/pedidos', pedidosRouter)
+app.use('/clientes', clientesRouter)
+
 module.exports = app;
